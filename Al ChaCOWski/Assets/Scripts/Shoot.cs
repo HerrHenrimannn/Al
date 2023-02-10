@@ -37,7 +37,7 @@ public class Shoot : MonoBehaviour
         RaycastHit hit;
         animator.SetBool("IsShooting", true);
         shootingSystem.Play();
-        if(Physics.Raycast(bulletStartPoint.position, fpsCam.transform.forward, out hit, range, mask))
+        if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range, mask))
         {
             TrailRenderer trail = Instantiate(bulletTrail, bulletStartPoint.position, Quaternion.identity);
             Target target = hit.transform.GetComponent<Target>();
